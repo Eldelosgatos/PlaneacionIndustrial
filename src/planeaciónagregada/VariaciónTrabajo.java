@@ -5,14 +5,19 @@
  */
 package planeaciónagregada;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
 /**
  *
  * @author josej
  */
 public class VariaciónTrabajo {
-    int P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12;
-    int PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12;
-    int PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12;
+    int P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12; //Requerimiento de produccion
+    int PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12; //Dias habiles por mes
+    int PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12; //Horas disponibles por dia
     int InventarioInicial, InventarioSeguridad, HoraTrabajo, costoContratacion, CostoDespido, TiempoRegular;
 
     public VariaciónTrabajo(int P1, int P2, int P3, int P4, int P5, int P6, int P7, int P8, int P9, int P10, int P11, int P12, int PD1, int PD2, int PD3, int PD4, int PD5, int PD6, int PD7, int PD8, int PD9, int PD10, int PD11, int PD12, int PH1, int PH2, int PH3, int PH4, int PH5, int PH6, int PH7, int PH8, int PH9, int PH10, int PH11, int PH12, int InventarioInicial, int InventarioSeguridad, int HoraTrabajo, int costoContratacion, int CostoDespido, int TiempoRegular) {
@@ -58,17 +63,76 @@ public class VariaciónTrabajo {
         this.costoContratacion = costoContratacion;
         this.CostoDespido = CostoDespido;
         this.TiempoRegular = TiempoRegular;
+        //Datos de prueba ejemplo clase
+        /*this.HoraTrabajo = 5;
+        this.costoContratacion = 200;
+        this.CostoDespido = 250;
+        this.TiempoRegular = 4;*/
     }
 
-    
-    
+
     public int OperaVT(){
-        return 0;
+        //Variables leidas almacenadas en array
+        int[] tempreq = new int[] {P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12};
+        int[] tempdia = new int[]{PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12};
+        int[] temphrs = new int[]{PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12};
+        
+        //Datos de prueba ejemplo clase
+       /*int[] tempreq = new int[] {1850,1425,1000,850,1150,1725,0,0,0,0,0,0};
+        int[] tempdia = new int[]{22,19,21,21,22,20,0,0,0,0,0,0};
+        int[] temphrs = new int[]{8,8,8,8,8,8,0,0,0,0,0,0};*/
+     
+        ArrayList<Integer> requerimiento = new ArrayList<>(); 
+        ArrayList<Integer> diashab = new ArrayList<>(); 
+        ArrayList<Integer> horasxdia = new ArrayList<>(); 
+        
+        //Tomar solo en cuenta requerimientos de produccion diferentes de 0 y guardarlos en un arraylist
+        for (int i = 0; i < tempreq.length; i++) {
+            if (tempreq[i]!=0) {
+                requerimiento.add(tempreq[i]);
+                diashab.add(tempdia[i]);
+                horasxdia.add(temphrs[i]);
+            }  
+        }
+        
+        //Calculo de trabajadores requeridos y tiempo regular
+        ArrayList<Integer> trabajadores = new ArrayList<>(); //trabajadores requeridos
+        int costoTiempoReg=0;
+        double tiempoprod;
+        int horasxmes;
+        
+        for (int i = 0; i < requerimiento.size(); i++) {
+            tiempoprod=requerimiento.get(i)*HoraTrabajo;
+            horasxmes=(diashab.get(i)*horasxdia.get(i));
+            
+            trabajadores.add((int)Math.round(tiempoprod/horasxmes));
+            costoTiempoReg=costoTiempoReg+((int)tiempoprod*TiempoRegular);
+            
+            System.out.println("Requerimiento "+requerimiento.get(i));
+        }
+        System.out.println("Trabajadores requeridos "+trabajadores);
+        System.out.println("Tiempo regular "+costoTiempoReg);
+        
+        //Calculo de costo por contratacion y despido
+        int totalContratacion=0;
+        int totalDespido=0;
+        int anterior=trabajadores.get(0);
+        for (int t:trabajadores){
+            if (t>anterior) {
+                totalContratacion=totalContratacion+((t-anterior)*costoContratacion);
+            } else if(t<anterior){
+                totalDespido=totalDespido+((anterior-t)*CostoDespido);
+            }
+            anterior=t;
+        }
+        System.out.println("Costo contratacion "+totalContratacion);  
+        System.out.println("Costo despido "+totalDespido);
+        
+        int resultado=costoTiempoReg+totalContratacion+totalDespido;
+        System.out.println("COSTO TOTAL: "+resultado+"/n");
+        return resultado;
     }
             
-
-
-
     public int getP1() {
         return P1;
     }
