@@ -325,18 +325,27 @@ public class PA extends javax.swing.JFrame {
 
         jLabel26.setText("Costo escasez");
 
+        tInventarioSeguridad.setText("0");
+
+        tHoraTrabajo.setText("0");
+
+        tCostoDespido.setText("0");
         tCostoDespido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tCostoDespidoActionPerformed(evt);
             }
         });
 
+        tCostoEscasez.setText("0");
         tCostoEscasez.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tCostoEscasezActionPerformed(evt);
             }
         });
 
+        tCostoContratacion.setText("0");
+
+        tTiempoRegular.setText("0");
         tTiempoRegular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tTiempoRegularActionPerformed(evt);
@@ -345,6 +354,7 @@ public class PA extends javax.swing.JFrame {
 
         jLabel27.setText("Inventario inicial");
 
+        tInventarioInicial.setText("0");
         tInventarioInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tInventarioInicialActionPerformed(evt);
@@ -353,6 +363,7 @@ public class PA extends javax.swing.JFrame {
 
         jLabel28.setText("Mantenimiento de inventario");
 
+        tMantenimiento.setText("0");
         tMantenimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tMantenimientoActionPerformed(evt);
@@ -653,11 +664,12 @@ public class PA extends javax.swing.JFrame {
                     .addComponent(jLabel30)
                     .addComponent(jResultado2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(tTiempoRegular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tCostoEscasez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tTiempoRegular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tCostoEscasez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel26)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 

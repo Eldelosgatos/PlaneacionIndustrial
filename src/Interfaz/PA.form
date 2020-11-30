@@ -379,11 +379,13 @@
                   <Component id="jResultado2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel25" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="tTiempoRegular" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tCostoEscasez" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tTiempoRegular" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tCostoEscasez" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
@@ -747,22 +749,40 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tInventarioSeguridad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tHoraTrabajo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tCostoDespido">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tCostoDespidoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tCostoEscasez">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tCostoEscasezActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tCostoContratacion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tTiempoRegular">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tTiempoRegularActionPerformed"/>
       </Events>
@@ -773,6 +793,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tInventarioInicial">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tInventarioInicialActionPerformed"/>
       </Events>
@@ -783,6 +806,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tMantenimiento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tMantenimientoActionPerformed"/>
       </Events>
