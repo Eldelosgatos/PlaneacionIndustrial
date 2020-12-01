@@ -5,6 +5,8 @@
  */
 package planeaciónagregada;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author josej
@@ -71,7 +73,9 @@ public class TrabajoConstante {
         */
     }
     
-    public int OperaTC(){
-        return 0;
+    public int[] OperaTC(){
+        
+        int[] costos = {0,0,0,0};
+        return costos;
     }
 }
