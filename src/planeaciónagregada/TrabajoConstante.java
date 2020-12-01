@@ -62,8 +62,8 @@ public class TrabajoConstante {
         this.TiempoRegular = TiempoRegular;
         //Datos de prueba ejemplo clase
         /*
-        this.InventarioInicial = InventarioInicial;
-        this.InventarioSeguridad = InventarioSeguridad;
+        this.InventarioInicial = 400;
+        this.InventarioSeguridad = 25;
         this.HoraTrabajo = 5;
         this.costoContratacion = 200;
         this.CostoDespido = 250;
