@@ -13,9 +13,9 @@ public class TrabajoConstante {
     int P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12; //Requerimiento de produccion
     int PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12; //Dias habiles por mes
     int PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12; //Horas disponibles por dia
-    int InventarioInicial, InventarioSeguridad, HoraTrabajo, costoContratacion, CostoDespido, TiempoRegular;
+    int InventarioInicial, InventarioSeguridad, HoraTrabajo, costoContratacion, CostoDespido, TiempoRegular, CostoEscasez, Mantenimiento;
 
-    public TrabajoConstante(int P1, int P2, int P3, int P4, int P5, int P6, int P7, int P8, int P9, int P10, int P11, int P12, int PD1, int PD2, int PD3, int PD4, int PD5, int PD6, int PD7, int PD8, int PD9, int PD10, int PD11, int PD12, int PH1, int PH2, int PH3, int PH4, int PH5, int PH6, int PH7, int PH8, int PH9, int PH10, int PH11, int PH12, int InventarioInicial, int InventarioSeguridad, int HoraTrabajo, int costoContratacion, int CostoDespido, int TiempoRegular) {
+    public TrabajoConstante(int P1, int P2, int P3, int P4, int P5, int P6, int P7, int P8, int P9, int P10, int P11, int P12, int PD1, int PD2, int PD3, int PD4, int PD5, int PD6, int PD7, int PD8, int PD9, int PD10, int PD11, int PD12, int PH1, int PH2, int PH3, int PH4, int PH5, int PH6, int PH7, int PH8, int PH9, int PH10, int PH11, int PH12, int InventarioInicial, int InventarioSeguridad, int HoraTrabajo, int costoContratacion, int CostoDespido, int TiempoRegular, int CostoEscasez, int Mantenimiento) {
         this.P1 = P1;
         this.P2 = P2;
         this.P3 = P3;
@@ -54,15 +54,21 @@ public class TrabajoConstante {
         this.PH12 = PH12;
         this.InventarioInicial = InventarioInicial;
         this.InventarioSeguridad = InventarioSeguridad;
+        this.CostoEscasez = CostoEscasez;
+        this.Mantenimiento = Mantenimiento;
         this.HoraTrabajo = HoraTrabajo;
         this.costoContratacion = costoContratacion;
         this.CostoDespido = CostoDespido;
         this.TiempoRegular = TiempoRegular;
         //Datos de prueba ejemplo clase
-        /*this.HoraTrabajo = 5;
+        /*
+        this.InventarioInicial = InventarioInicial;
+        this.InventarioSeguridad = InventarioSeguridad;
+        this.HoraTrabajo = 5;
         this.costoContratacion = 200;
         this.CostoDespido = 250;
-        this.TiempoRegular = 4;*/
+        this.TiempoRegular = 4;
+        */
     }
     
     public int OperaTC(){

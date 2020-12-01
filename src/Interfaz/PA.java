@@ -725,10 +725,12 @@ public class PA extends javax.swing.JFrame {
     costoContratacion= Integer.parseInt(tCostoContratacion.getText());
     CostoDespido= Integer.parseInt(tCostoDespido.getText());
     TiempoRegular= Integer.parseInt(tTiempoRegular.getText());
+    CostoEscasez=Integer.parseInt(tCostoEscasez.getText());
+    Mantenimiento=  Integer.parseInt(tMantenimiento.getText());
     
    VariaciónTrabajo s=new VariaciónTrabajo(P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12,PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12, InventarioInicial, InventarioSeguridad, HoraTrabajo, costoContratacion, CostoDespido, TiempoRegular );
    jResultado.setText(String.valueOf(s.OperaVT()));
-   TrabajoConstante s2=new TrabajoConstante(P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12,PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12, InventarioInicial, InventarioSeguridad, HoraTrabajo, costoContratacion, CostoDespido, TiempoRegular );
+   TrabajoConstante s2=new TrabajoConstante(P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12,PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12, InventarioInicial, InventarioSeguridad, HoraTrabajo, costoContratacion, CostoDespido, TiempoRegular,CostoEscasez,Mantenimiento );
    jResultado2.setText(String.valueOf(s2.OperaTC()));
     
     
