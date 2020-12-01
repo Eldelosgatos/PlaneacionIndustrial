@@ -57,43 +57,67 @@ public class VariaciónTrabajo {
         this.PH10 = PH10;
         this.PH11 = PH11;
         this.PH12 = PH12;
-        this.InventarioInicial = InventarioInicial;
+        /*this.InventarioInicial = InventarioInicial;
         this.InventarioSeguridad = InventarioSeguridad;
         this.HoraTrabajo = HoraTrabajo;
         this.costoContratacion = costoContratacion;
         this.CostoDespido = CostoDespido;
-        this.TiempoRegular = TiempoRegular;
+        this.TiempoRegular = TiempoRegular;*/
         //Datos de prueba ejemplo clase
-        /*this.HoraTrabajo = 5;
+        
+        this.InventarioInicial = 400;
+        this.InventarioSeguridad = 25;
+        this.HoraTrabajo = 5;
         this.costoContratacion = 200;
         this.CostoDespido = 250;
-        this.TiempoRegular = 4;*/
+        this.TiempoRegular = 4;
     }
 
 
-    public int OperaVT(){
+    public int[] OperaVT(){
         //Variables leidas almacenadas en array
-        int[] tempreq = new int[] {P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12};
+        /*int[] tempdemanda = new int[] {P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12};
         int[] tempdia = new int[]{PD1, PD2, PD3, PD4, PD5, PD6, PD7, PD8, PD9, PD10, PD11, PD12};
-        int[] temphrs = new int[]{PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12};
+        int[] temphrs = new int[]{PH1, PH2, PH3, PH4, PH5, PH6, PH7, PH8, PH9, PH10, PH11, PH12};*/
         
         //Datos de prueba ejemplo clase
-       /*int[] tempreq = new int[] {1850,1425,1000,850,1150,1725,0,0,0,0,0,0};
+        int[] tempdemanda = new int[] {1800,1500,1100,900,1100,1600,0,0,0,0,0,0};
         int[] tempdia = new int[]{22,19,21,21,22,20,0,0,0,0,0,0};
-        int[] temphrs = new int[]{8,8,8,8,8,8,0,0,0,0,0,0};*/
+        int[] temphrs = new int[]{8,8,8,8,8,8,0,0,0,0,0,0};
      
-        ArrayList<Integer> requerimiento = new ArrayList<>(); 
+        ArrayList<Integer> demanda = new ArrayList<>(); 
         ArrayList<Integer> diashab = new ArrayList<>(); 
         ArrayList<Integer> horasxdia = new ArrayList<>(); 
+        ArrayList<Integer> invseg = new ArrayList<>();
         
-        //Tomar solo en cuenta requerimientos de produccion diferentes de 0 y guardarlos en un arraylist
-        for (int i = 0; i < tempreq.length; i++) {
-            if (tempreq[i]!=0) {
-                requerimiento.add(tempreq[i]);
+        //Tomar solo en cuenta pronosticos de demanda diferentes de 0 y guardarlos en un arraylist
+        for (int i = 0; i < tempdemanda.length; i++) {
+            if (tempdemanda[i]!=0) {
+                demanda.add(tempdemanda[i]);
                 diashab.add(tempdia[i]);
                 horasxdia.add(temphrs[i]);
+                invseg.add((int)Math.round(demanda.get(i)*(InventarioSeguridad/100.00)));
             }  
         }
+        
+        //Calculo de requisitos
+        ArrayList<Integer> requerimiento = new ArrayList<>(); 
+        ArrayList<Integer> invinicial = new ArrayList<>(); 
+        ArrayList<Integer> invfinal = new ArrayList<>(); 
+
+        invinicial.add(InventarioInicial);
+        
+        for (int i = 0; i < demanda.size(); i++){
+            requerimiento.add(demanda.get(i)+invseg.get(i)-invinicial.get(i));
+            System.out.println(demanda.get(i)+" "+invseg.get(i)+" "+invinicial.get(i));
+            invfinal.add(invinicial.get(i)+requerimiento.get(i)-demanda.get(i));
+            invinicial.add(invfinal.get(i));
+        }
+        
+        System.out.println("Requerimiento "+requerimiento);
+        System.out.println("Inventario inicial "+invinicial);
+        System.out.println("Inventario final "+invfinal);
+        System.out.println("Inventario seguridad "+invseg);
         
         //Calculo de trabajadores requeridos y tiempo regular
         ArrayList<Integer> trabajadores = new ArrayList<>(); //trabajadores requeridos
@@ -106,10 +130,9 @@ public class VariaciónTrabajo {
             horasxmes=(diashab.get(i)*horasxdia.get(i));
             
             trabajadores.add((int)Math.round(tiempoprod/horasxmes));
-            costoTiempoReg=costoTiempoReg+((int)tiempoprod*TiempoRegular);
-            
-            System.out.println("Requerimiento "+requerimiento.get(i));
+            costoTiempoReg=costoTiempoReg+((int)tiempoprod*TiempoRegular);  
         }
+        
         System.out.println("Trabajadores requeridos "+trabajadores);
         System.out.println("Tiempo regular "+costoTiempoReg);
         
@@ -129,8 +152,9 @@ public class VariaciónTrabajo {
         System.out.println("Costo despido "+totalDespido);
         
         int resultado=costoTiempoReg+totalContratacion+totalDespido;
+        int[] costos = {totalContratacion,totalDespido,costoTiempoReg,resultado};
         System.out.println("COSTO TOTAL: "+resultado+"/n");
-        return resultado;
+        return costos;
     }
             
     public int getP1() {
